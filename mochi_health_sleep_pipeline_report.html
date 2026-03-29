@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerging Therapeutics in Energy, Sleep & Narcolepsy | Mochi Health Strategy Brief</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #faf8f4;
+    --cream: #f3efe7;
+    --mochi-teal: #1a7a6e;
+    --mochi-teal-light: #e6f4f2;
+    --mochi-amber: #d4821a;
+    --mochi-amber-light: #fdf3e3;
+    --mochi-red: #c0392b;
+    --mochi-red-light: #fdecea;
+    --slate: #4a5568;
+    --rule: #d4cfc6;
+    --highlight: #fff3cd;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 80px 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,122,110,0.35) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -60px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,130,26,0.2) 0%, transparent 70%);
+  }
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mochi-teal);
+    margin-bottom: 48px;
+  }
+  .cover-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: rgba(250,248,244,0.6);
+  }
+  .cover-subtitle {
+    font-size: 17px;
+    color: rgba(250,248,244,0.65);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 64px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    border-top: 1px solid rgba(250,248,244,0.15);
+    padding-top: 32px;
+    position: relative; z-index: 2;
+  }
+  .cover-meta-item label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,248,244,0.4);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cover-meta-item span {
+    font-size: 13px;
+    color: rgba(250,248,244,0.8);
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mochi-teal);
+    margin-bottom: 12px;
+  }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 38px; line-height: 1.15; margin-bottom: 24px; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 28px; line-height: 1.2; margin-bottom: 16px; margin-top: 56px; }
+  h3 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 16px; margin-bottom: 10px; margin-top: 32px; }
+  p { margin-bottom: 16px; color: #2d2d2d; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 48px 0;
+  }
+
+  /* ── EXEC SUMMARY ── */
+  .exec-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 12px;
+    padding: 40px 48px;
+    margin: 32px 0 48px;
+  }
+  .exec-box h2 { color: var(--paper); margin-top: 0; font-size: 22px; margin-bottom: 24px; }
+  .exec-findings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .exec-finding {
+    border-left: 2px solid var(--mochi-teal);
+    padding-left: 16px;
+  }
+  .exec-finding .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--mochi-teal);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .exec-finding p { font-size: 13px; color: rgba(250,248,244,0.75); margin: 0; line-height: 1.5; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .callout-teal { background: var(--mochi-teal-light); border-left: 3px solid var(--mochi-teal); }
+  .callout-amber { background: var(--mochi-amber-light); border-left: 3px solid var(--mochi-amber); }
+  .callout-red { background: var(--mochi-red-light); border-left: 3px solid var(--mochi-red); }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-body { font-size: 14px; line-height: 1.6; }
+  .callout-body strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── DRUG CARDS ── */
+  .drug-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .drug-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .drug-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .drug-card.approved::before { background: var(--mochi-teal); }
+  .drug-card.pipeline::before { background: var(--mochi-amber); }
+  .drug-card.early::before { background: #9b59b6; }
+  .drug-card.grey::before { background: #95a5a6; }
+
+  .drug-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .badge-approved { background: var(--mochi-teal-light); color: var(--mochi-teal); }
+  .badge-pipeline { background: var(--mochi-amber-light); color: var(--mochi-amber); }
+  .badge-early { background: #f5eef8; color: #7d3c98; }
+  .badge-grey { background: #f2f3f4; color: #566573; }
+
+  .drug-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .drug-brand {
+    font-size: 12px;
+    color: var(--slate);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .drug-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .drug-meta-item { font-size: 12px; }
+  .drug-meta-item span { display: block; color: var(--slate); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── COMPARISON TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 24px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 14px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  tr:nth-child(even) td { background: var(--cream); }
+  tr:hover td { background: var(--mochi-teal-light); }
+
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .dot-approved { background: var(--mochi-teal); }
+  .dot-phase3 { background: var(--mochi-amber); }
+  .dot-phase2 { background: #9b59b6; }
+  .dot-early { background: #95a5a6; }
+  .dot-grey { background: #bdc3c7; }
+
+  /* ── CHARTS ── */
+  .chart-container {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+  .chart-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .chart-subtitle {
+    font-size: 12px;
+    color: var(--slate);
+    margin-bottom: 20px;
+  }
+  canvas { max-height: 320px; }
+
+  /* ── OPPORTUNITY MATRIX ── */
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    background: var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 28px 0;
+    min-height: 400px;
+  }
+  .matrix-cell {
+    background: white;
+    padding: 24px;
+  }
+  .matrix-cell-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .matrix-cell.tl { }
+  .matrix-cell.tr { background: var(--mochi-teal-light); }
+  .matrix-cell.bl { background: #fafafa; }
+  .matrix-cell.br { background: var(--mochi-amber-light); }
+  .matrix-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin: 3px;
+    white-space: nowrap;
+  }
+  .matrix-axis-x {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 8px;
+  }
+  .matrix-axis-y-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .matrix-axis-y {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    margin: 32px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--rule);
+  }
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .timeline-year {
+    width: 120px;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    padding-top: 2px;
+    color: var(--slate);
+  }
+  .timeline-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+    z-index: 2;
+  }
+  .timeline-content { flex: 1; }
+  .timeline-content strong { font-size: 14px; display: block; margin-bottom: 3px; }
+  .timeline-content p { font-size: 12px; color: var(--slate); margin: 0; }
+
+  /* ── RECOMMENDATION CARDS ── */
+  .rec-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
+  }
+  .rec-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .rec-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--mochi-teal);
+    margin-bottom: 12px;
+    opacity: 0.3;
+  }
+  .rec-title { font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+  .rec-body { font-size: 13px; color: var(--slate); line-height: 1.5; }
+  .rec-timing {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mochi-amber);
+  }
+
+  /* ── RISK TABLE ── */
+  .risk-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .risk-label { width: 180px; flex-shrink: 0; font-weight: 600; font-size: 13px; }
+  .risk-body { flex: 1; font-size: 13px; color: var(--slate); }
+  .risk-level {
+    width: 80px;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 3px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+  .risk-high { background: var(--mochi-red-light); color: var(--mochi-red); }
+  .risk-med { background: var(--mochi-amber-light); color: var(--mochi-amber); }
+  .risk-low { background: var(--mochi-teal-light); color: var(--mochi-teal); }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    background: var(--ink);
+    color: rgba(250,248,244,0.4);
+    font-size: 11px;
+    padding: 32px 80px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 700px) {
+    .page { padding: 40px 24px; }
+    .cover { padding: 48px 32px 40px; }
+    .drug-grid, .rec-cards, .exec-findings { grid-template-columns: 1fr; }
+    .matrix-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── TOC ── */
+  .toc { background: var(--cream); border-radius: 10px; padding: 32px; margin: 32px 0; }
+  .toc h3 { margin-top: 0; margin-bottom: 16px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'DM Mono', monospace; color: var(--slate); }
+  .toc-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted var(--rule); font-size: 14px; }
+  .toc-item a { color: var(--ink); text-decoration: none; }
+  .toc-item a:hover { color: var(--mochi-teal); }
+  .toc-item span { color: var(--slate); font-family: 'DM Mono', monospace; font-size: 11px; }
+
+  .page-break { border-top: 2px solid var(--ink); margin: 64px 0 0; padding-top: 64px; }
+
+  .highlight-stat {
+    display: inline-block;
+    background: var(--highlight);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .source-note {
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+    margin-top: -8px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <div>
+    <div class="cover-eyebrow">Mochi Health · Strategic Intelligence Brief · March 2026</div>
+    <div class="cover-title">Emerging Therapeutics in<br><em>Energy, Sleep &</em><br>Narcolepsy</div>
+    <div class="cover-subtitle">A clinical pipeline analysis of Phase 3 trials and approved drugs — with strategic implications for Mochi Health's next category expansion.</div>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Prepared for</label>
+      <span>Mochi Health · CEO Office</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Scope</label>
+      <span>Narcolepsy · Insomnia · EDS · Energy Peptides</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Data Currency</label>
+      <span>Through Q1 2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Format</label>
+      <span>Medical Literature Review + Market Strategy</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ BODY ═══════════════ -->
+<div class="page">
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <h3>Contents</h3>
+    <div class="toc-item"><a href="#exec">01 · Executive Summary</a><span>Strategic Findings</span></div>
+    <div class="toc-item"><a href="#context">02 · Market Context</a><span>Why This Category Now</span></div>
+    <div class="toc-item"><a href="#narcolepsy">03 · Narcolepsy Therapeutics</a><span>Clinical Review</span></div>
+    <div class="toc-item"><a href="#sleep">04 · Insomnia & Sleep Disorders</a><span>Clinical Review</span></div>
+    <div class="toc-item"><a href="#energy">05 · Energy & Fatigue Peptides</a><span>Pipeline Status</span></div>
+    <div class="toc-item"><a href="#compare">06 · Master Comparison Matrix</a><span>All Drugs, Side by Side</span></div>
+    <div class="toc-item"><a href="#opportunity">07 · Opportunity Analysis for Mochi</a><span>Strategic Quadrant</span></div>
+    <div class="toc-item"><a href="#watchlist">08 · Watchlist & Recommendations</a><span>Actionable Steps</span></div>
+    <div class="toc-item"><a href="#risks">09 · Risks & Considerations</a><span>Regulatory · Clinical · Business</span></div>
+  </div>
+
+  <!-- ── 01 EXEC SUMMARY ── -->
+  <div id="exec">
+    <div class="section-label">01 · Executive Summary</div>
+    <h1>The Orexin Era Is Here.<br>Mochi Has a Window.</h1>
+    <p>A paradigm shift is underway in sleep and wakefulness medicine. For three decades, treatment for narcolepsy and related disorders relied on symptomatic management — stimulants that keep patients awake without addressing what's wrong. That era is ending. Orexin receptor agonists, which replace the brain's missing wake signal at its source, are entering the market for the first time.</p>
+    <p>This presents a concrete opportunity for Mochi Health. As a telehealth platform with existing infrastructure for medication management, prior authorization support, compounding pharmacy relationships, and a patient base that skews toward metabolic and energy-related conditions, Mochi is better positioned than legacy care to capture this new patient category — if it moves early.</p>
+
+    <div class="exec-box">
+      <h2>Three Strategic Findings</h2>
+      <div class="exec-findings">
+        <div class="exec-finding">
+          <span class="num">~200K</span>
+          <p>Americans have narcolepsy — but the average time to diagnosis is <strong>10+ years</strong>, creating a pipeline of newly-diagnosed, treatment-naive patients who will need prescriber support.</p>
+        </div>
+        <div class="exec-finding">
+          <span class="num">Q3 '26</span>
+          <p>Oveporexton (TAK-861) — the first disease-modifying narcolepsy drug — has a PDUFA date in Q3 2026. FDA acceptance was granted February 10, 2026. This is imminent.</p>
+        </div>
+        <div class="exec-finding">
+          <span class="num">$6.2B</span>
+          <p>The EDS market in 2025, growing at 9.1% CAGR. Sleep and narcolepsy telehealth is early-stage. Mochi's model — affordable access, insurance navigation, medication management — maps directly to patient needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-teal">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <strong>The Core Thesis</strong>
+        The same dynamics that made GLP-1 telehealth successful — patient demand outstripping specialist access, insurance barriers, and medication complexity — are now playing out in sleep medicine. Mochi has a playbook that works here.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 02 MARKET CONTEXT ── -->
+  <div id="context">
+    <div class="section-label">02 · Market Context</div>
+    <h2>Why Sleep & Energy, Why Now</h2>
+
+    <p>The success of GLP-1 therapeutics has done more than create a weight loss category — it has changed how the pharmaceutical industry thinks about receptor-level biology. The same investigator networks, FDA pathways, and investor appetite that accelerated GLP-1 development are now being applied to orexin, a neuropeptide system governing wakefulness, metabolism, mood, and attention.</p>
+
+    <p>Three forces are converging to make this moment strategically significant:</p>
+
+    <h3>1. First disease-modifying drug for narcolepsy is weeks away from FDA approval</h3>
+    <p>Oveporexton (Takeda's TAK-861), an oral OX2R agonist, received FDA priority review with a PDUFA date in Q3 2026. Two Phase 3 trials — FirstLight and RadiantLight — met all primary and secondary endpoints in July 2025. This will be the first drug approved to address the underlying orexin deficiency rather than just manage symptoms. The launch will generate significant patient and prescriber attention.</p>
+
+    <h3>2. Chronic insomnia treatments have quietly improved</h3>
+    <p>A newer class of sleep aids — dual orexin receptor antagonists (DORAs) — offer meaningfully better safety profiles than benzodiazepines or Z-drugs. Daridorexant (Quviviq) and lemborexant (Dayvigo) are FDA-approved, non-scheduled, and telehealth-prescribable. Yet adoption lags because most patients still get zolpidem by default.</p>
+
+    <h3>3. Energy peptides are a growing patient demand with regulatory ambiguity</h3>
+    <p>Compounds like BPC-157, MOTS-c, and CJC-1295 are widely sought by patients but lack FDA approval and rigorous human trial data. This is simultaneously a risk (compounding restrictions) and an opportunity (Mochi can be the credible, evidence-guided voice in a noisy space).</p>
+
+    <!-- Market Size Chart -->
+    <div class="chart-container">
+      <div class="chart-title">Sleep & Wakefulness Disorder Market — Size & Growth Trajectory</div>
+      <div class="chart-subtitle">USD Billions · Select segments · 2024–2034 projections</div>
+      <canvas id="marketChart"></canvas>
+      <p class="source-note">Sources: Future Market Insights, Grand View Research, Coherent Market Insights, 2025 estimates</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 03 NARCOLEPSY ── -->
+  <div id="narcolepsy">
+    <div class="section-label">03 · Narcolepsy Therapeutics — Clinical Review</div>
+    <h2>From Symptom Management to Disease Modification</h2>
+
+    <p>Narcolepsy type 1 (NT1) is caused by autoimmune destruction of orexin-producing neurons in the lateral hypothalamus. NT1 patients have CSF orexin levels below 110 pg/mL — often undetectable — and the HLA-DQB1*06:02 allele. The hallmark symptoms are excessive daytime sleepiness (EDS) and cataplexy (sudden muscle weakness triggered by emotion), along with sleep paralysis, hypnagogic hallucinations, and disrupted nighttime sleep.</p>
+
+    <p>Narcolepsy type 2 (NT2) and idiopathic hypersomnia (IH) are related conditions with overlapping EDS presentation but without orexin deficiency or cataplexy. An estimated <span class="highlight-stat">135,000–200,000 Americans</span> have narcolepsy, with average diagnostic delay exceeding 10 years.</p>
+
+    <h3>Approved Treatments</h3>
+
+    <div class="drug-grid">
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2002/2023</span>
+        <div class="drug-name">Sodium Oxybate</div>
+        <div class="drug-brand">Xyrem (IR) · Lumryz (ER) · Xywav (low-Na)</div>
+        <p style="font-size:13px; margin-bottom:0;">The gold standard for cataplexy and nighttime sleep disruption. Works via GABA-B receptor modulation. Lumryz (once-nightly ER formulation) approved 2023, improving adherence. Xywav reduces sodium burden by 92%.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>GABA-B agonist</div>
+          <div class="drug-meta-item"><span>Addresses Cataplexy</span>Yes — first-line</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule III (DEA)</div>
+          <div class="drug-meta-item"><span>Key Limitation</span>CNS depressant, sodium load, abuse potential</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2019</span>
+        <div class="drug-name">Pitolisant</div>
+        <div class="drug-brand">Wakix · Bioprojet/Harmony Biosciences</div>
+        <p style="font-size:13px; margin-bottom:0;">First-in-class H3 receptor inverse agonist. Enhances histamine-driven wakefulness. Non-scheduled, morning dosing, no abuse potential. Approved for EDS and cataplexy. Pediatric approval (age 6+) granted 2024.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>H3 inverse agonist</div>
+          <div class="drug-meta-item"><span>Addresses Cataplexy</span>Yes</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Non-scheduled ✓</div>
+          <div class="drug-meta-item"><span>Key Advantage</span>No abuse risk, daytime dosing</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2019</span>
+        <div class="drug-name">Solriamfetol</div>
+        <div class="drug-brand">Sunosi · Jazz/Axsome Therapeutics</div>
+        <p style="font-size:13px; margin-bottom:0;">Dopamine-norepinephrine reuptake inhibitor (DNRI). Approved for EDS in narcolepsy AND obstructive sleep apnea. Shows strong MWT improvements; renal excretion means fewer drug interactions. Does not significantly affect cataplexy.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>DNRI</div>
+          <div class="drug-meta-item"><span>Addresses Cataplexy</span>Minimal</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule IV</div>
+          <div class="drug-meta-item"><span>Key Advantage</span>EDS efficacy, dual indication</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 1998/2004</span>
+        <div class="drug-name">Modafinil / Armodafinil</div>
+        <div class="drug-brand">Provigil · Nuvigil · Various generics</div>
+        <p style="font-size:13px; margin-bottom:0;">Still the most common first-line agent due to availability, cost, and familiarity. EDS improvement of 65–90%. Generics widely available. Does not treat cataplexy. CYP interactions (contraceptives). Mechanism not fully understood.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>DAT/uncertain</div>
+          <div class="drug-meta-item"><span>Addresses Cataplexy</span>No</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule IV</div>
+          <div class="drug-meta-item"><span>Key Advantage</span>Low cost, generic available</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Pipeline: The Orexin Agonist Revolution</h3>
+
+    <div class="callout callout-amber">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-body">
+        <strong>Critical Distinction</strong>
+        All currently approved narcolepsy drugs treat <em>symptoms</em>. Orexin receptor agonists are the first class designed to replace the missing neurochemical signal — addressing the root cause of NT1. This is analogous to the shift from managing blood sugar with sulfonylureas to GLP-1 receptor agonists that work at the hormonal level.
+      </div>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card pipeline">
+        <span class="drug-badge badge-pipeline">NDA Filed · PDUFA Q3 2026</span>
+        <div class="drug-name">Oveporexton</div>
+        <div class="drug-brand">TAK-861 · Takeda Pharmaceuticals</div>
+        <p style="font-size:13px; margin-bottom:0;">Oral OX2R-selective agonist. Met all primary and secondary endpoints in both Phase 3 trials (FirstLight, RadiantLight; 273 patients across 19 countries). At the 2mg BID dose: ~85% of patients reached ESS ≤10 (healthy range). MWT improvement into normative range (≥20 min). Broad symptom coverage including cataplexy, sleep quality, attention, and quality of life. FDA accepted NDA with Priority Review, Feb 10, 2026. Breakthrough Therapy designation. Projected peak sales: $2–3B/year.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>OX2R agonist</div>
+          <div class="drug-meta-item"><span>Addresses Cataplexy</span>Yes — significantly</div>
+          <div class="drug-meta-item"><span>Dosing</span>Oral, twice daily</div>
+          <div class="drug-meta-item"><span>Expected Approval</span>Q3 2026</div>
+        </div>
+      </div>
+
+      <div class="drug-card early">
+        <span class="drug-badge badge-early">Phase 2 · Ongoing</span>
+        <div class="drug-name">ALKS 2680</div>
+        <div class="drug-brand">Alkermes plc</div>
+        <p style="font-size:13px; margin-bottom:0;">Highly potent OX2R agonist (>5,000-fold selectivity over OX1R); ≥10× more potent than endogenous orexin-A. Phase 1b demonstrated significant dose-dependent MWT improvement in NT1, NT2, and IH. Vibrance-1 (NT1) and Vibrance-2 (NT2) Phase 2 studies ongoing. Once-daily oral dosing. Plans to expand into IH.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>OX2R agonist</div>
+          <div class="drug-meta-item"><span>Indications</span>NT1, NT2, IH</div>
+          <div class="drug-meta-item"><span>Dosing</span>Oral, once daily</div>
+          <div class="drug-meta-item"><span>Stage</span>Phase 2 (Vibrance trials)</div>
+        </div>
+      </div>
+
+      <div class="drug-card early">
+        <span class="drug-badge badge-early">Phase 1b Reported 2025</span>
+        <div class="drug-name">E2086</div>
+        <div class="drug-brand">Eisai Co., Ltd.</div>
+        <p style="font-size:13px; margin-bottom:0;">Eisai's in-house OX2R agonist, leveraging their orexin platform from Dayvigo development. Phase 1b showed once-daily dosing potential for wakefulness in NT1. TEAEs included increased urinary frequency and nausea (dose-dependent); all mild-moderate, no discontinuations. Data presented at World Sleep 2025.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>OX2R agonist</div>
+          <div class="drug-meta-item"><span>Stage</span>Phase 1b completed</div>
+          <div class="drug-meta-item"><span>Dosing</span>Once daily (target)</div>
+          <div class="drug-meta-item"><span>Note</span>TEAEs: urinary frequency, nausea</div>
+        </div>
+      </div>
+
+      <div class="drug-card early">
+        <span class="drug-badge badge-early">Phase 1 / Preclinical</span>
+        <div class="drug-name">ORX142 / ORX750</div>
+        <div class="drug-brand">Centessa Pharmaceuticals</div>
+        <p style="font-size:13px; margin-bottom:0;">Two candidates targeting OX2R. ORX142 began Phase 1 in 2024; ORX750 is a selective OX2R agonist being developed for NT1, NT2, and IH. Early-stage but demonstrates growing competition in the space.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Stage</span>Phase 1 / Preclinical</div>
+          <div class="drug-meta-item"><span>Indications</span>NT1, NT2, IH</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 Efficacy Chart -->
+    <div class="chart-container">
+      <div class="chart-title">Narcolepsy Drug Efficacy Comparison — Epworth Sleepiness Scale (ESS) Response</div>
+      <div class="chart-subtitle">% of patients achieving ESS ≤10 (normal range) or mean ESS improvement vs. placebo at primary endpoint</div>
+      <canvas id="efficacyChart"></canvas>
+      <p class="source-note">Sources: Phase 3 trial publications; PMC; NeurologyLive; touchNeurology; FAERS analysis. ESS ranges: 0–10 normal, 11–24 increasing sleepiness. *Oveporexton 2mg BID arm. †Approximate from published MWT and ESS data.</p>
+    </div>
+
+    <!-- Timeline -->
+    <h3>Regulatory Timeline: Narcolepsy Pipeline</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2002–2004</div>
+        <div class="timeline-dot" style="background: var(--mochi-teal);"></div>
+        <div class="timeline-content">
+          <strong>Sodium Oxybate (Xyrem) approved</strong>
+          <p>First FDA-approved treatment for cataplexy in narcolepsy. Twice-nightly dosing.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-dot" style="background: var(--mochi-teal);"></div>
+        <div class="timeline-content">
+          <strong>Pitolisant (Wakix) + Solriamfetol (Sunosi) approved</strong>
+          <p>New mechanisms for EDS. First non-scheduled narcolepsy drug (pitolisant).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-dot" style="background: var(--mochi-teal);"></div>
+        <div class="timeline-content">
+          <strong>Lumryz approved (once-nightly sodium oxybate)</strong>
+          <p>Formulation improvement for patient adherence. Low-sodium Xywav also expanded.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Jul 2025</div>
+        <div class="timeline-dot" style="background: var(--mochi-amber);"></div>
+        <div class="timeline-content">
+          <strong>Oveporexton Phase 3 — All endpoints met</strong>
+          <p>FirstLight and RadiantLight trials (N=273) both achieve statistical significance across all primary and secondary outcomes.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Feb 2026</div>
+        <div class="timeline-dot" style="background: var(--mochi-amber);"></div>
+        <div class="timeline-content">
+          <strong>FDA accepts oveporexton NDA · Priority Review</strong>
+          <p>PDUFA date: Q3 2026. Breakthrough Therapy designation. First OX2R agonist before FDA.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Q3 2026</div>
+        <div class="timeline-dot" style="background: #e74c3c;"></div>
+        <div class="timeline-content">
+          <strong>Expected oveporexton approval →  Market launch</strong>
+          <p>If approved, first disease-modifying drug for narcolepsy type 1. Projected $2–3B peak sales. Prescribers and patients will be seeking access immediately.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2027–2028</div>
+        <div class="timeline-dot" style="background: #9b59b6;"></div>
+        <div class="timeline-content">
+          <strong>ALKS 2680 Phase 3 expected · E2086 Phase 2 expected</strong>
+          <p>Second wave of OX2R agonists with potentially superior dosing profiles. Market will expand from NT1 to NT2 and IH.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 04 SLEEP ── -->
+  <div id="sleep">
+    <div class="section-label">04 · Insomnia & Sleep Disorders — Clinical Review</div>
+    <h2>The DORA Generation: Safer Sleep That's Underutilized</h2>
+
+    <p>Chronic insomnia disorder (CID) affects an estimated <span class="highlight-stat">30% of U.S. adults</span>, with 10% meeting criteria for clinical insomnia. The insomnia therapeutics market was valued at $6.8 billion in 2025. Yet despite this scale, most patients still receive zolpidem (a Z-drug / GABA-A agonist) with significant next-day impairment, dependency risk, and contraindications in elderly patients.</p>
+
+    <p>Dual orexin receptor antagonists (DORAs) represent a mechanistically superior class for insomnia: rather than sedating the brain broadly, they block orexin's wake-promoting signal, allowing natural sleep to occur. The result is better sleep architecture, reduced dependency risk, and improved next-day functioning.</p>
+
+    <div class="drug-grid">
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2022</span>
+        <div class="drug-name">Daridorexant</div>
+        <div class="drug-brand">Quviviq · Idorsia Pharmaceuticals</div>
+        <p style="font-size:13px; margin-bottom:0;">Phase 3 trials (NCT03545191, NCT03575104) demonstrated significant improvement in sleep onset, WASO, and subjective sleep quality at 3 months. 50mg dose showed consistent improvements in sleep architecture without suppressing REM or delta sleep. No next-day impairment; non-scheduled.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>DORA (OX1R+OX2R antagonist)</div>
+          <div class="drug-meta-item"><span>Dosing</span>25mg or 50mg QHS</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule IV</div>
+          <div class="drug-meta-item"><span>Advantage</span>Preserves sleep architecture</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2019</span>
+        <div class="drug-name">Lemborexant</div>
+        <div class="drug-brand">Dayvigo · Eisai / Purdue Pharma</div>
+        <p style="font-size:13px; margin-bottom:0;">Phase 3 meta-analysis (2025) shows lemborexant superiority over daridorexant in WASO (wake after sleep onset) and subjective sleep onset latency (sSOL). Approved for chronic insomnia in adults. Available in 5mg and 10mg. Eisai's established DORA platform also drives their orexin agonist work (E2086).</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>DORA (OX1R+OX2R antagonist)</div>
+          <div class="drug-meta-item"><span>Dosing</span>5mg or 10mg QHS</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule IV</div>
+          <div class="drug-meta-item"><span>Advantage</span>Strong WASO improvement</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2014</span>
+        <div class="drug-name">Suvorexant</div>
+        <div class="drug-brand">Belsomra · Merck</div>
+        <p style="font-size:13px; margin-bottom:0;">The first DORA approved. Efficacy comparable to newer DORAs but next-day somnolence at higher doses limits use. Generic versions available 2023, making it more cost-accessible. Schedule IV. Used in elderly patients for sleep maintenance.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>DORA (OX1R+OX2R antagonist)</div>
+          <div class="drug-meta-item"><span>Dosing</span>10–20mg QHS</div>
+          <div class="drug-meta-item"><span>Scheduled</span>Schedule IV</div>
+          <div class="drug-meta-item"><span>Note</span>Generic available (cost ↓)</div>
+        </div>
+      </div>
+
+      <div class="drug-card pipeline">
+        <span class="drug-badge badge-pipeline">Phase 3 — MDD; Phase 2 — Insomnia</span>
+        <div class="drug-name">Seltorexant</div>
+        <div class="drug-brand">MIN-202 / JNJ-42847922 · J&J / Minerva</div>
+        <p style="font-size:13px; margin-bottom:0;">Selective OX2R antagonist (2-SORA) — distinct from full DORAs. In Phase 3 for MDD with insomnia; Phase 2 for standalone insomnia and Alzheimer's. Over 100-fold selectivity for OX2R over OX1R. Fast absorption (Tmax 0.3–1.5 hrs). If approved, expands the SORA class.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>Mechanism</span>Selective OX2R antagonist</div>
+          <div class="drug-meta-item"><span>Key Indications</span>MDD + insomnia, Alzheimer's</div>
+          <div class="drug-meta-item"><span>Stage</span>Phase 3 (MDD), Phase 2 (insomnia)</div>
+          <div class="drug-meta-item"><span>Differentiator</span>OX2-selective; psychiatric cross-over</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DORA comparison chart -->
+    <div class="chart-container">
+      <div class="chart-title">Insomnia Drug Profile Comparison</div>
+      <div class="chart-subtitle">Relative ratings across key clinical dimensions (1–5 scale, illustrative based on Phase 3 data)</div>
+      <canvas id="doraRadarChart"></canvas>
+      <p class="source-note">Sources: Oxford Academic Sleep Journal; PubMed meta-analyses; FDA prescribing information; FAERS database analysis</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 05 ENERGY PEPTIDES ── -->
+  <div id="energy">
+    <div class="section-label">05 · Energy & Fatigue Peptides — Pipeline Status</div>
+    <h2>High Demand, Thin Evidence, Real Risk</h2>
+
+    <p>Unlike narcolepsy and insomnia drugs — which have robust Phase 3 trial data and clear FDA pathways — the "energy peptide" category is characterized by significant patient demand, limited rigorous human data, and active regulatory scrutiny. This is the highest-risk section of the landscape, but also the most relevant to Mochi's existing patient population.</p>
+
+    <div class="callout callout-red">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <strong>Regulatory Reality Check</strong>
+        BPC-157 and MOTS-c are not FDA-approved for any indication. BPC-157 is classified as an FDA Category 2 bulk drug substance (cannot be compounded by commercial pharmacies). Only 3 published human studies exist for BPC-157 as of early 2026 — all small pilot studies without placebo controls. The landscape of "peptide wellness" that patients encounter online is largely unregulated and carries product quality and safety risks.
+      </div>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card grey">
+        <span class="drug-badge badge-grey">No Human Phase Trials Complete</span>
+        <div class="drug-name">BPC-157</div>
+        <div class="drug-brand">Body Protection Compound-157 · Various</div>
+        <p style="font-size:13px; margin-bottom:0;">Pentadecapeptide isolated from gastric juice. Extensive animal data for tissue repair, anti-inflammatory effects, GI healing. Promising preclinical profile, but only ~30 humans studied across 3 published trials (all small, no controls). FDA Category 2 (2023): cannot be compounded. The gray market is widespread. A 2015 Phase 1 trial (NCT02637284, 42 volunteers) was canceled without publishing results.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>FDA Status</span>Category 2 — not compoundable</div>
+          <div class="drug-meta-item"><span>Human Data</span>~30 subjects, no RCTs</div>
+          <div class="drug-meta-item"><span>Claimed Uses</span>Healing, gut health, energy</div>
+          <div class="drug-meta-item"><span>Risk Level</span>High (regulatory + safety)</div>
+        </div>
+      </div>
+
+      <div class="drug-card grey">
+        <span class="drug-badge badge-grey">Research Stage · No Clinical Trials</span>
+        <div class="drug-name">MOTS-c</div>
+        <div class="drug-brand">Mitochondrial ORF of 12S rRNA Type-C</div>
+        <p style="font-size:13px; margin-bottom:0;">Mitochondria-derived peptide that activates AMPK, improving metabolic efficiency and insulin sensitivity. Strong mouse model data for obesity, exercise performance, and aging. Analog CB411 in early preclinical development for NASH/obesity. No published human RCTs. Not FDA-approved; can be prescribed off-label via compounding pharmacies in a legal gray area.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>FDA Status</span>Research chemical / off-label</div>
+          <div class="drug-meta-item"><span>Human Data</span>None published</div>
+          <div class="drug-meta-item"><span>Mechanism</span>AMPK activation</div>
+          <div class="drug-meta-item"><span>Risk Level</span>High (no human data)</div>
+        </div>
+      </div>
+
+      <div class="drug-card approved">
+        <span class="drug-badge badge-approved">FDA Approved · 2004 (tesamorelin)</span>
+        <div class="drug-name">Tesamorelin (Egrifta)</div>
+        <div class="drug-brand">Theratechnologies · Compoundable analog: Sermorelin</div>
+        <p style="font-size:13px; margin-bottom:0;">GHRH analog approved for HIV-associated lipodystrophy. Increases IGF-1 and GH levels. Sermorelin (a related GHRH peptide) is used off-label for "anti-aging" and energy, available via compounding pharmacies. Unlike BPC-157, sermorelin has a clearer legal compounding pathway and more human data.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>FDA Status</span>Approved (tesamorelin); off-label (sermorelin)</div>
+          <div class="drug-meta-item"><span>Human Data</span>Robust (tesamorelin RCTs)</div>
+          <div class="drug-meta-item"><span>Mechanism</span>GHRH analog → ↑GH/IGF-1</div>
+          <div class="drug-meta-item"><span>Risk Level</span>Moderate (compounding nuances)</div>
+        </div>
+      </div>
+
+      <div class="drug-card grey">
+        <span class="drug-badge badge-grey">Compoundable / Off-Label</span>
+        <div class="drug-name">Ipamorelin / CJC-1295</div>
+        <div class="drug-brand">Various compounding pharmacies</div>
+        <p style="font-size:13px; margin-bottom:0;">GH secretagogues widely used in the wellness market for energy, body composition, and recovery. Ipamorelin is a selective ghrelin receptor agonist. CJC-1295 is a GHRH analog with a longer half-life. Limited human RCT data. Available through compounding pharmacies in a legal but tenuous regulatory position. FDA has increased scrutiny on this class.</p>
+        <div class="drug-meta">
+          <div class="drug-meta-item"><span>FDA Status</span>Gray area — compoundable with caveats</div>
+          <div class="drug-meta-item"><span>Human Data</span>Limited</div>
+          <div class="drug-meta-item"><span>Mechanism</span>GH secretagogue</div>
+          <div class="drug-meta-item"><span>Risk Level</span>Moderate-High</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Peptide regulatory spectrum -->
+    <div class="chart-container">
+      <div class="chart-title">Energy Peptide Landscape: Evidence vs. Regulatory Clarity</div>
+      <div class="chart-subtitle">Positioning of major compounds by human evidence level and regulatory status</div>
+      <canvas id="peptideChart"></canvas>
+      <p class="source-note">Sources: FDA bulk drug substance lists; PubMed; USADA; STAT News; preprints.org; American Journal of Sports Medicine 2025</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 06 COMPARISON MATRIX ── -->
+  <div id="compare">
+    <div class="section-label">06 · Master Comparison Matrix</div>
+    <h2>All Major Drugs, Side by Side</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Drug</th>
+            <th>Class / Mechanism</th>
+            <th>FDA Status</th>
+            <th>Primary Indication</th>
+            <th>Cataplexy?</th>
+            <th>Scheduled?</th>
+            <th>Mochi Prescribable?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sodium Oxybate</strong><br><small>Xyrem / Lumryz / Xywav</small></td>
+            <td>GABA-B agonist</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>NT1 EDS + cataplexy</td>
+            <td>✅ Yes</td>
+            <td>Schedule III</td>
+            <td>⚠️ Complex REMS program</td>
+          </tr>
+          <tr>
+            <td><strong>Pitolisant</strong><br><small>Wakix</small></td>
+            <td>H3 receptor inverse agonist</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>NT1 EDS + cataplexy</td>
+            <td>✅ Yes</td>
+            <td>Non-scheduled</td>
+            <td>✅ Yes — strong fit</td>
+          </tr>
+          <tr>
+            <td><strong>Solriamfetol</strong><br><small>Sunosi</small></td>
+            <td>DNRI</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>NT1 + OSA EDS</td>
+            <td>❌ Minimal</td>
+            <td>Schedule IV</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Modafinil / Armodafinil</strong><br><small>Provigil / Nuvigil</small></td>
+            <td>Wake-promoting agent</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>NT1/NT2 EDS; OSA; shift work</td>
+            <td>❌ No</td>
+            <td>Schedule IV</td>
+            <td>✅ Yes (generic)</td>
+          </tr>
+          <tr>
+            <td><strong>Daridorexant</strong><br><small>Quviviq</small></td>
+            <td>DORA (OX1R+OX2R antagonist)</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>Chronic insomnia</td>
+            <td>N/A</td>
+            <td>Schedule IV</td>
+            <td>✅ Yes — ideal for telehealth</td>
+          </tr>
+          <tr>
+            <td><strong>Lemborexant</strong><br><small>Dayvigo</small></td>
+            <td>DORA (OX1R+OX2R antagonist)</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>Chronic insomnia</td>
+            <td>N/A</td>
+            <td>Schedule IV</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Suvorexant</strong><br><small>Belsomra + generic</small></td>
+            <td>DORA (OX1R+OX2R antagonist)</td>
+            <td><span class="status-dot dot-approved"></span>Approved</td>
+            <td>Chronic insomnia</td>
+            <td>N/A</td>
+            <td>Schedule IV</td>
+            <td>✅ Yes (generic affordable)</td>
+          </tr>
+          <tr>
+            <td><strong>Oveporexton (TAK-861)</strong><br><small>Takeda · NDA pending</small></td>
+            <td>OX2R selective agonist</td>
+            <td><span class="status-dot dot-phase3"></span>NDA Accepted · PDUFA Q3 2026</td>
+            <td>NT1 EDS + cataplexy</td>
+            <td>✅ Significant</td>
+            <td>TBD</td>
+            <td>⏳ Pre-launch positioning now</td>
+          </tr>
+          <tr>
+            <td><strong>ALKS 2680</strong><br><small>Alkermes</small></td>
+            <td>OX2R selective agonist</td>
+            <td><span class="status-dot dot-phase2"></span>Phase 2</td>
+            <td>NT1, NT2, IH</td>
+            <td>✅ Expected</td>
+            <td>TBD</td>
+            <td>⏳ 2027–2028 watch</td>
+          </tr>
+          <tr>
+            <td><strong>Seltorexant</strong><br><small>J&J / Minerva</small></td>
+            <td>Selective OX2R antagonist</td>
+            <td><span class="status-dot dot-phase2"></span>Phase 3 (MDD) / Phase 2 (insomnia)</td>
+            <td>MDD + insomnia; Alzheimer's</td>
+            <td>N/A</td>
+            <td>TBD</td>
+            <td>⏳ Psychiatric crossover opportunity</td>
+          </tr>
+          <tr>
+            <td><strong>BPC-157</strong><br><small>Gray market</small></td>
+            <td>Gastric pentadecapeptide</td>
+            <td><span class="status-dot dot-grey"></span>No FDA approval; Category 2</td>
+            <td>Off-label: healing, energy</td>
+            <td>N/A</td>
+            <td>Not scheduled</td>
+            <td>❌ Cannot be compounded</td>
+          </tr>
+          <tr>
+            <td><strong>MOTS-c</strong><br><small>Research grade</small></td>
+            <td>Mitochondrial peptide</td>
+            <td><span class="status-dot dot-grey"></span>Research use only</td>
+            <td>Off-label: metabolism, energy</td>
+            <td>N/A</td>
+            <td>Not scheduled</td>
+            <td>❌ No legal prescribing pathway</td>
+          </tr>
+          <tr>
+            <td><strong>Sermorelin / Ipamorelin</strong><br><small>Compounding pharmacies</small></td>
+            <td>GHRH analog / GH secretagogue</td>
+            <td><span class="status-dot dot-grey"></span>Off-label compounding</td>
+            <td>Off-label: energy, anti-aging, body comp</td>
+            <td>N/A</td>
+            <td>Not scheduled</td>
+            <td>⚠️ Legal but under increasing scrutiny</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 07 OPPORTUNITY MATRIX ── -->
+  <div id="opportunity">
+    <div class="section-label">07 · Strategic Opportunity Analysis for Mochi Health</div>
+    <h2>Where Mochi Should Play</h2>
+
+    <p>Mochi's core competencies — telehealth access, insurance prior authorization, compounding pharmacy relationships, medication management, and patient navigation — map directly onto the access problems in sleep medicine. Sleep specialists are scarce, patients wait months for appointments, and most primary care physicians are not confident prescribing newer narcolepsy drugs.</p>
+
+    <p>The framework below plots each drug/category across two dimensions relevant to Mochi's business:</p>
+    <ul style="margin: 0 0 20px 20px; font-size:14px; line-height:2;">
+      <li><strong>Patient Demand Likelihood:</strong> How many of Mochi's current/near-future patients would want or benefit from this medication?</li>
+      <li><strong>Platform Integration Ease:</strong> How quickly and legally could Mochi add this to its formulary or prescribing workflow?</li>
+    </ul>
+
+    <div class="matrix-axis-y-wrap">
+      <div class="matrix-axis-y">↑ Patient Demand Likelihood</div>
+      <div style="flex:1;">
+        <div class="matrix-grid">
+          <div class="matrix-cell tl">
+            <div class="matrix-cell-label" style="color:var(--slate);">Low Demand · High Ease<br><small>(Deprioritize)</small></div>
+            <span class="matrix-pill">Suvorexant (generic)</span>
+            <span class="matrix-pill">Armodafinil</span>
+          </div>
+          <div class="matrix-cell tr">
+            <div class="matrix-cell-label" style="color:var(--mochi-teal);">⭐ High Demand · High Ease<br><small>(Act Now)</small></div>
+            <span class="matrix-pill" style="background:var(--mochi-teal);color:white;border-color:transparent;">Pitolisant (Wakix)</span>
+            <span class="matrix-pill" style="background:var(--mochi-teal);color:white;border-color:transparent;">Daridorexant (Quviviq)</span>
+            <span class="matrix-pill" style="background:var(--mochi-teal);color:white;border-color:transparent;">Lemborexant (Dayvigo)</span>
+            <span class="matrix-pill" style="background:var(--mochi-teal);color:white;border-color:transparent;">Solriamfetol (Sunosi)</span>
+            <span class="matrix-pill" style="background:var(--mochi-amber);color:white;border-color:transparent;">Oveporexton (pre-launch)</span>
+          </div>
+          <div class="matrix-cell bl">
+            <div class="matrix-cell-label" style="color:#999;">Low Demand · Low Ease<br><small>(Avoid)</small></div>
+            <span class="matrix-pill" style="opacity:0.5;">MOTS-c</span>
+            <span class="matrix-pill" style="opacity:0.5;">BPC-157</span>
+          </div>
+          <div class="matrix-cell br">
+            <div class="matrix-cell-label" style="color:var(--mochi-amber);">High Demand · Low Ease<br><small>(Build toward)</small></div>
+            <span class="matrix-pill">Oveporexton (post-approval)</span>
+            <span class="matrix-pill">Sodium Oxybate (REMS)</span>
+            <span class="matrix-pill">Ipamorelin/CJC-1295</span>
+            <span class="matrix-pill">ALKS 2680 (future)</span>
+          </div>
+        </div>
+        <div class="matrix-axis-x">→ Platform Integration Ease (Regulatory + Formulary + PA)</div>
+      </div>
+    </div>
+
+    <div class="callout callout-teal">
+      <div class="callout-icon">🎯</div>
+      <div class="callout-body">
+        <strong>The Strategic Insight</strong>
+        The upper-right quadrant — high demand, high ease — is where Mochi should move immediately. Pitolisant, daridorexant, lemborexant, and solriamfetol are all FDA-approved, telehealth-prescribable, and align with patient profiles Mochi already serves. The insomnia market alone is $6.8B, yet most telehealth platforms don't actively serve it with the newer DORA class. This is white space.
+      </div>
+    </div>
+
+    <!-- Opportunity sizing chart -->
+    <div class="chart-container">
+      <div class="chart-title">Addressable Patient Population — U.S. Estimates by Condition</div>
+      <div class="chart-subtitle">Number of Americans affected · Approximate diagnosed/treated proportion (showing underdiagnosis gap)</div>
+      <canvas id="populationChart"></canvas>
+      <p class="source-note">Sources: NINDS; National Organization for Rare Disorders; CDC; Grand View Research; Coherent Market Insights; American Academy of Sleep Medicine</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 08 WATCHLIST ── -->
+  <div id="watchlist">
+    <div class="section-label">08 · Watchlist & Recommendations</div>
+    <h2>Three Things Mochi Should Do in the Next 90 Days</h2>
+
+    <div class="rec-cards">
+      <div class="rec-card">
+        <div class="rec-number">01</div>
+        <div class="rec-title">Launch a Sleep & Wakefulness Care Line — Now</div>
+        <div class="rec-body">Pitolisant, solriamfetol, daridorexant, and lemborexant are all currently prescribable via telehealth. Mochi's existing prior auth infrastructure applies directly. Build a dedicated intake flow for narcolepsy (NT1, NT2), idiopathic hypersomnia, and chronic insomnia. Modafinil is the current default for most patients; Mochi can offer evidence-guided upgrades.</div>
+        <div class="rec-timing">Timeline: 30–60 days</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">02</div>
+        <div class="rec-title">Get Ahead of Oveporexton Approval</div>
+        <div class="rec-body">With a PDUFA date in Q3 2026, oveporexton is months away from approval. Mochi should be building prescriber education, patient waitlists, and insurance prior authorization templates now. The patients who will want this drug are already on forums and in underserved care gaps. First-mover in narcolepsy telehealth captures durable market share.</div>
+        <div class="rec-timing">Timeline: Start immediately · Launch Q3 2026</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">03</div>
+        <div class="rec-title">Be the Credible Voice on Energy Peptides</div>
+        <div class="rec-body">Patients are already seeking BPC-157, MOTS-c, and GH secretagogues — often unsafely. Mochi should publish clear, evidence-based guidance distinguishing what's legal/prescribable (sermorelin, tesamorelin off-label) from what's not (BPC-157, MOTS-c). Position Mochi as the trusted expert. This drives patient acquisition through search and word-of-mouth while protecting Mochi legally.</div>
+        <div class="rec-timing">Timeline: 30–45 days (content strategy)</div>
+      </div>
+    </div>
+
+    <!-- Pipeline watch chart -->
+    <div class="chart-container">
+      <div class="chart-title">Key Drug Events — 2025–2028 Strategic Calendar</div>
+      <div class="chart-subtitle">FDA milestones and Mochi action windows</div>
+      <canvas id="timelineChart"></canvas>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 09 RISKS ── -->
+  <div id="risks">
+    <div class="section-label">09 · Risks & Considerations</div>
+    <h2>What Could Go Wrong</h2>
+
+    <div class="risk-row">
+      <div class="risk-label">Oveporexton FDA Delay</div>
+      <div class="risk-body">Priority review doesn't guarantee approval on PDUFA date. If FDA requests additional data (Complete Response Letter), market launch could shift to 2027. Mochi's pre-launch positioning work is not wasted, but patient communication and prescriber readiness programs should be designed to flex with timing uncertainty.</div>
+      <div class="risk-level risk-med">Medium</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Controlled Substance Prescribing</div>
+      <div class="risk-body">Sodium oxybate (Schedule III) requires a REMS program that is difficult for standard telehealth workflows. Most DORAs (Schedule IV) are manageable, but prescribers must conduct appropriate evaluation before prescribing any scheduled substance. Mochi needs clinical protocol documentation for each drug class.</div>
+      <div class="risk-level risk-med">Medium</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Peptide Compounding Crackdown</div>
+      <div class="risk-body">Following the GLP-1 compounding enforcement, the FDA has signaled continued attention to unapproved peptide compounding. Ipamorelin and CJC-1295 may face Category 2 classification in the near term. Any Mochi offerings in this space should be reviewed by regulatory counsel before launch and maintained as a second-tier offering.</div>
+      <div class="risk-level risk-high">High</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Insurance Coverage Gaps</div>
+      <div class="risk-body">Newer drugs like pitolisant (Wakix) can exceed $500/month without coverage. Narcolepsy payers often require documented MSLT or polysomnography results, which are difficult to obtain via telehealth alone. Mochi would need lab and sleep study referral partnerships to facilitate prior authorizations for the most diagnostic-intensive prescriptions.</div>
+      <div class="risk-level risk-med">Medium</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Misdiagnosis Risk</div>
+      <div class="risk-body">Narcolepsy is frequently misdiagnosed as depression, ADHD, or general fatigue. A telehealth-first model must include validated screening tools (ESS, STOP-BANG, Swiss Narcolepsy Scale) and clear escalation criteria to in-person sleep specialists. Prescribing stimulants or wake-promoting agents to patients with undiagnosed sleep apnea is clinically dangerous.</div>
+      <div class="risk-level risk-high">High</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Competitive Moat</div>
+      <div class="risk-body">Hims & Hers, Done, and emerging sleep-specific telehealth platforms could move quickly into this space. Mochi's advantage is its established infrastructure, board-certified provider network, and track record with complex medication management (GLP-1 compounding). Speed of category entry will determine defensibility.</div>
+      <div class="risk-level risk-low">Low-Med</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Sources -->
+  <div>
+    <div class="section-label">Sources</div>
+    <h2 style="font-size:20px;">Key References</h2>
+    <p style="font-size:12px; color:var(--slate); line-height:1.8;">
+      Takeda Pharmaceuticals. "Positive Results from Phase 3 Studies of Oveporexton (TAK-861) in Narcolepsy Type 1." July 14, 2025. · Takeda. "TAK-861 Phase 3 Presentations at World Sleep 2025." September 8, 2025. · PCORI Horizon Scanning Database. "Oveporexton (TAK-861)." Updated February 2026. · PMC: "Orexin Deficiency in Narcolepsy: Molecular Mechanisms, Clinical Phenotypes, and Emerging Therapeutic Frontiers." 2025. · NeurologyLive. "Orexin-Targeting Agent TAK-861 Meets All End Points." February 9, 2026. · Alkermes plc. ALKS 2680 Phase 1b and Phase 2 Study Design Data. SEC Form 8-K, 2024–2025. · Eisai Co., Ltd. "E2086 Phase 1b Results at World Sleep 2025." September 2025. · PMC: "Recently Approved and Upcoming Treatments for Narcolepsy." 2020 (updated citations). · PMC: "Evaluation of pitolisant, sodium oxybate, solriamfetol, and modafinil — FAERS analysis." Frontiers in Pharmacology, 2024. · Oxford Academic SLEEP. "Effect of daridorexant on sleep architecture — Phase 3 pooled analysis." November 2024. · PubMed: "Comparison of efficacy and safety of lemborexant and daridorexant." August 2025. · PMC: "Emerging Use of BPC-157 in Orthopaedic Sports Medicine." 2025. · STAT News. "BPC-157: The peptide with big claims and scant evidence." February 3, 2026. · USADA. "BPC-157: Experimental Peptide Creates Risk for Athletes." 2025. · Future Market Insights. Excessive Daytime Sleepiness Market Report. 2025. · Grand View Research. Narcolepsy Therapeutics Market. 2022–2030. · DelveInsight. "Narcolepsy Treatment Heats Up with Promising Pipelines." August 2025. · Mochi Health FAQ and CEO statements, 2025. · FDA Adverse Event Reporting System (FAERS), 2019–2023.
+    </p>
+  </div>
+
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="report-footer">
+  <span>Mochi Health · Strategic Intelligence · March 2026</span>
+  <span>Prepared as part of Operations Associate — Strategy role evaluation</span>
+</div>
+
+<script>
+// Color palette
+const teal = '#1a7a6e';
+const tealLight = 'rgba(26,122,110,0.12)';
+const amber = '#d4821a';
+const amberLight = 'rgba(212,130,26,0.12)';
+const red = '#c0392b';
+const slate = '#4a5568';
+const ink = '#0f0f0f';
+
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+Chart.defaults.color = slate;
+Chart.defaults.plugins.legend.labels.boxWidth = 12;
+Chart.defaults.plugins.legend.labels.padding = 16;
+
+// ── Market Size Chart ──
+new Chart(document.getElementById('marketChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Narcolepsy Tx\n(Global)', 'Excessive Daytime\nSleepiness (Global)', 'Insomnia Market\n(Global)', 'Hypersomnia Tx\n(Global)'],
+    datasets: [
+      {
+        label: '2025 (est.)',
+        data: [5.3, 6.25, 6.8, 1.2],
+        backgroundColor: tealLight,
+        borderColor: teal,
+        borderWidth: 2,
+        borderRadius: 4,
+      },
+      {
+        label: '2034 (projected)',
+        data: [8.7, 14.98, 16.5, 2.4],
+        backgroundColor: amberLight,
+        borderColor: amber,
+        borderWidth: 2,
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` $${ctx.parsed.y}B`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { callback: v => `$${v}B` },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── Efficacy Chart ──
+new Chart(document.getElementById('efficacyChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Oveporexton\n(TAK-861) 2mg*',
+      'Solriamfetol\n150mg',
+      'Pitolisant\n(Wakix)',
+      'Modafinil\n200–400mg',
+      'Sodium Oxybate\n(Lumryz)'
+    ],
+    datasets: [
+      {
+        label: '% achieving normal ESS (≤10) or equivalent response',
+        data: [85, 78, 64, 62, 72],
+        backgroundColor: [teal, '#2980b9', '#8e44ad', '#7f8c8d', '#16a085'],
+        borderRadius: 5,
+      }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x}% responders` } }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        max: 100,
+        ticks: { callback: v => `${v}%` },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ── DORA Radar Chart ──
+const radarCtx = document.getElementById('doraRadarChart').getContext('2d');
+new Chart(radarCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Sleep Onset\nImprovement', 'Sleep Maintenance\n(WASO)', 'Next-Day\nFunctioning', 'Safety Profile', 'Cost\nAccessibility', 'Prescriber\nFamiliarity'],
+    datasets: [
+      {
+        label: 'Daridorexant (Quviviq)',
+        data: [4.2, 4.0, 4.5, 4.5, 3.0, 3.2],
+        borderColor: teal,
+        backgroundColor: 'rgba(26,122,110,0.1)',
+        pointBackgroundColor: teal,
+        borderWidth: 2,
+        pointRadius: 4
+      },
+      {
+        label: 'Lemborexant (Dayvigo)',
+        data: [4.0, 4.5, 4.2, 4.4, 3.2, 3.5],
+        borderColor: amber,
+        backgroundColor: 'rgba(212,130,26,0.1)',
+        pointBackgroundColor: amber,
+        borderWidth: 2,
+        pointRadius: 4
+      },
+      {
+        label: 'Zolpidem (reference)',
+        data: [4.5, 3.0, 2.5, 2.5, 4.5, 5.0],
+        borderColor: '#95a5a6',
+        backgroundColor: 'rgba(149,165,166,0.08)',
+        pointBackgroundColor: '#95a5a6',
+        borderWidth: 1.5,
+        borderDash: [4, 4],
+        pointRadius: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 5,
+        ticks: { stepSize: 1, backdropColor: 'transparent' },
+        grid: { color: 'rgba(0,0,0,0.08)' },
+        pointLabels: { font: { size: 11 } }
+      }
+    },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+// ── Peptide Chart ──
+new Chart(document.getElementById('peptideChart'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: 'Tesamorelin (Egrifta)',
+        data: [{ x: 4.5, y: 4.2, r: 16 }],
+        backgroundColor: 'rgba(26,122,110,0.6)',
+        borderColor: teal
+      },
+      {
+        label: 'Sermorelin',
+        data: [{ x: 3.2, y: 3.5, r: 14 }],
+        backgroundColor: 'rgba(26,122,110,0.35)',
+        borderColor: teal
+      },
+      {
+        label: 'Ipamorelin / CJC-1295',
+        data: [{ x: 2.5, y: 3.8, r: 15 }],
+        backgroundColor: 'rgba(212,130,26,0.5)',
+        borderColor: amber
+      },
+      {
+        label: 'BPC-157',
+        data: [{ x: 1.2, y: 1.5, r: 20 }],
+        backgroundColor: 'rgba(192,57,43,0.4)',
+        borderColor: red
+      },
+      {
+        label: 'MOTS-c',
+        data: [{ x: 1.0, y: 2.0, r: 13 }],
+        backgroundColor: 'rgba(192,57,43,0.3)',
+        borderColor: red
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'right' },
+      tooltip: {
+        callbacks: {
+          label: ctx => `${ctx.dataset.label} — Evidence: ${ctx.parsed.x}/5 · Regulatory clarity: ${ctx.parsed.y}/5`
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 5,
+        title: { display: true, text: '← Human Evidence Level →', font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      y: {
+        min: 0, max: 5,
+        title: { display: true, text: '← Regulatory Clarity (FDA/Compounding) →', font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      }
+    }
+  }
+});
+
+// ── Population Chart ──
+new Chart(document.getElementById('populationChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Chronic\nInsomnia', 'Narcolepsy\n(all types)', 'Idiopathic\nHypersomnia', 'OSA with\nEDS', 'Narcolepsy\nDiagnosed'],
+    datasets: [
+      {
+        label: 'Estimated U.S. population (millions)',
+        data: [70, 0.2, 0.15, 22, 0.05],
+        backgroundColor: [teal, '#2980b9', '#8e44ad', '#16a085', '#c0392b'],
+        borderRadius: 5
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ~${ctx.parsed.y < 1 ? (ctx.parsed.y * 1000).toFixed(0) + 'K' : ctx.parsed.y + 'M'} Americans` } }
+    },
+    scales: {
+      y: {
+        type: 'logarithmic',
+        ticks: { callback: v => v >= 1 ? `${v}M` : `${v*1000}K` },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── Timeline Chart ──
+new Chart(document.getElementById('timelineChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Oveporexton NDA\nAccepted',
+      'Oveporexton\nPDUFA Date',
+      'ALKS 2680\nPhase 3 Expected',
+      'Seltorexant\nMDD Decision',
+      'E2086\nPhase 2 Start',
+      'ALKS 2680\n(NT2/IH) Approval Est.'
+    ],
+    datasets: [{
+      label: 'Timeline Event',
+      data: [2026.1, 2026.6, 2027.0, 2027.0, 2026.5, 2028.5],
+      backgroundColor: [teal, '#e74c3c', amber, '#8e44ad', '#2980b9', amber],
+      borderRadius: 5
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const val = ctx.parsed.x;
+            const yr = Math.floor(val);
+            const q = Math.ceil((val - yr) * 4);
+            return ` ~Q${q} ${yr}`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 2025.5,
+        max: 2029,
+        ticks: {
+          callback: v => {
+            const yr = Math.floor(v);
+            const q = Math.round((v - yr) * 4);
+            if (q === 0) return yr;
+            return `Q${q} ${yr}`;
+          },
+          stepSize: 0.25
+        },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      y: { grid: { display: false } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
